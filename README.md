@@ -19,7 +19,7 @@ This project implements a Spiking Neural Network (SNN) for image classification 
 
 Install dependencies:
 ```bash
-pip install torch torchvision spikingjelly tqdm
+pip install torch torchvision tqdm spikingjelly==0.0.0.0.14
 ```
 
 ## Network Architecture
@@ -55,6 +55,8 @@ The script will:
 The model typically achieves:
 - Test accuracy: 90.31%
 (Results may vary based on hardware and training conditions)
+
+See 'train_snn_cifar10.log' for more details.
 
 ## Architecture Details
 
