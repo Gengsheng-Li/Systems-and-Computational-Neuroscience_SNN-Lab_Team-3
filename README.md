@@ -53,8 +53,7 @@ The script will:
 ## Performance
 
 The model typically achieves:
-- Training accuracy: ~85%
-- Test accuracy: ~80%
+- Test accuracy: 90.31%
 (Results may vary based on hardware and training conditions)
 
 ## Architecture Details
