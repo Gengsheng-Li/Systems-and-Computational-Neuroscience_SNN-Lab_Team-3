@@ -59,12 +59,17 @@ The model typically achieves:
 See 'train_snn_cifar10.log' for more details.
 
 ## Architecture Details
-
+Overall structure:
 ```python
-ConvBlock(3, 128) -> ConvBlock(128, 128) -> MaxPool2d
--> ConvBlock(128, 256) -> ConvBlock(256, 256) -> MaxPool2d
--> ConvBlock(256, 512) -> ConvBlock(512, 512) -> MaxPool2d
--> Flatten -> Linear(512*4*4, 1024) -> Linear(1024, 10)
+ConvBlock(3, 128) -> ConvBlock(128, 128) -> MaxPool2d(2, 2)
+-> ConvBlock(128, 256) -> ConvBlock(256, 256) -> MaxPool2d(2, 2)
+-> ConvBlock(256, 512) -> ConvBlock(512, 512) -> MaxPool2d(2, 2)
+-> Flatten -> Linear(512*4*4, 1024) -> IFNode(surrogate.ATan()) -> Linear(1024, 10)
+```
+
+Structure of ConvBlock:
+```python
+Conv2d(in_channels, out_channels) -> BatchNorm2d(out_channels) -> IFNode(surrogate.ATan())
 ```
 
 ## License
